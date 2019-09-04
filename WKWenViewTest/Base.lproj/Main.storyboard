@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,91 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WKWenViewTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2B-va-PJG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-po-x6C">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="rewind" id="Z4v-rZ-1m0">
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="BYZ-38-t0r" id="3n9-WI-6Xa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="oFh-GQ-sSJ"/>
+                                    <barButtonItem systemItem="refresh" id="Vcf-Ga-stc">
+                                        <connections>
+                                            <action selector="webReload:" destination="BYZ-38-t0r" id="Lk1-2M-lSo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="0qp-6d-QZx"/>
+                                    <barButtonItem systemItem="fastForward" id="Kor-sL-3am">
+                                        <connections>
+                                            <action selector="forwardButtonAction:" destination="BYZ-38-t0r" id="VKT-dm-c6W"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="634-AT-GCX">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGb-gX-3Jv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="JoI-vU-Zbx">
+                                        <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="lw5-ZL-LyD">
+                                            <rect key="frame" x="20" y="7" width="318" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" systemItem="fixedSpace" id="B4q-A1-WFY"/>
+                                    <barButtonItem systemItem="search" id="20p-zs-BBZ">
+                                        <connections>
+                                            <action selector="searchButton:" destination="BYZ-38-t0r" id="som-QI-jOl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="634-AT-GCX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BOf-hK-rai"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="V2B-va-PJG" secondAttribute="bottom" id="FKy-aS-a9f"/>
+                            <constraint firstItem="634-AT-GCX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IeX-ux-yZg"/>
+                            <constraint firstItem="IGb-gX-3Jv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Iys-GH-man"/>
+                            <constraint firstItem="V2B-va-PJG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZoK-DE-ChY"/>
+                            <constraint firstItem="IGb-gX-3Jv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aK5-Vs-nnh"/>
+                            <constraint firstItem="V2B-va-PJG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="auG-3u-XRm"/>
+                            <constraint firstItem="IGb-gX-3Jv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jPV-8E-bZr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V2B-va-PJG" secondAttribute="trailing" id="xlG-RS-XUC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="Z4v-rZ-1m0" id="m5a-9S-XHe"/>
+                        <outlet property="forwardButton" destination="Kor-sL-3am" id="RHR-fx-7OB"/>
+                        <outlet property="indicator" destination="634-AT-GCX" id="gxn-1a-z3t"/>
+                        <outlet property="searchTextField" destination="lw5-ZL-LyD" id="IrZ-oz-9eL"/>
+                        <outlet property="webView" destination="V2B-va-PJG" id="1i5-FM-YsQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

@@ -35,11 +35,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
         indicator.isHidden = true
     }
     
+    // Web View에서 웹 콘텐츠를 받기 시작할 때 호출됩니다.
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         indicator.isHidden = false
         indicator.startAnimating()
     }
     
+    // Web View에서 웹 콘텐츠를 받기가 끝날 때 호출됩니다.
     @IBAction func backButtonAction(_ sender: Any) {
         webView.goBack()
         //webView.reload()

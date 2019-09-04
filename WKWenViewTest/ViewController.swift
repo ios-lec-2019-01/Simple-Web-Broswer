@@ -38,18 +38,17 @@ class ViewController: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         indicator.isHidden = false
         indicator.startAnimating()
-        
     }
     
     @IBAction func backButtonAction(_ sender: Any) {
         webView.goBack()
-        webView.reload()
+        //webView.reload()
         print("go back")
     }
     
     @IBAction func forwardButtonAction(_ sender: Any) {
         webView.goForward()
-        webView.reload()
+        //webView.reload()
         print("go forward")
     }
     @IBAction func webReload(_ sender: Any) {

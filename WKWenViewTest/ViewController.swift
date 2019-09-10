@@ -58,13 +58,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     @IBAction func searchButton(_ sender: Any) {
-        func searchTextOnGoogle(text: String){
-            let textComponent = text.components(separatedBy: " ")
-            let searchString = textComponent.joined(separator: "+")
-            let url = URL(string: "https://www.google.com/search?q=" + searchString)
-            let urlRequest = URLRequest(url: url!)
-            webView.load(urlRequest)
-        }
+        
         if let urlString = searchTextField.text{
             if urlString.starts(with: "http://") || urlString.starts(with: "https://"){
                 let urlRequest = URLRequest(url: URL(string: urlString)!)
@@ -72,16 +66,16 @@ class ViewController: UIViewController, WKNavigationDelegate {
             }else if urlString.contains("www"){
                 let urlRequest = URLRequest(url: URL(string: "http://\(urlString)")!)
                 webView.load(urlRequest)
-            }else{
-                searchTextOnGoogle(text: urlString)
+            }else {
+//                searchTextOnGoogle(text: urlString)
+                let textComponent = urlString.components(separatedBy: " ")
+                let searchString = textComponent.joined(separator: "+")
+                let url = URL(string: "https://www.google.com/search?q=" + searchString)
+                let urlRequest = URLRequest(url: url!)
+                webView.load(urlRequest)
             }
         }
-        
-//        if let urlString = searchTextField.text {
-//            let request = URLRequest(url: URL(string: urlString)!)
-//            //print(request)
-//            webView?.load(request)
-//        }
+    
     }
 }
 
